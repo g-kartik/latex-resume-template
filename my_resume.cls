@@ -64,7 +64,7 @@
 %-------------------------------------------------------------------------------
 %% Page Layout
 % Configure page margins with geometry
-\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm, showframe}
+\geometry{left=2.0cm, top=1.5cm, right=2.0cm, bottom=2.0cm, footskip=.5cm}
 
 %% Header & Footer
 % Set offset to each header and footer
@@ -241,7 +241,7 @@
 
 % Define a footer for CV
 % Usage: \makecvfooter{<left>}{<center>}{<right>}
-\newcommand*{\makecvfooter}[3]{
+\newcommand{\makecvfooter}[3]{
   \fancyfoot{}
   \fancyfoot[L]{\footerstyle{#1}}
   \fancyfoot[C]{\footerstyle{#2}}
@@ -298,29 +298,17 @@
   \end{tabularx}
 }
 
-% Define an environment for cvskill
-\newenvironment{cvskills}{
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-2.0mm}
-  \begin{center}
-    \setlength\tabcolsep{1ex}
-    \setlength{\extrarowheight}{0pt}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} r L{\textwidth * \real{0.9}}}
-}{
-  \end{tabular*}
-  \end{center}
-}
 
 % Define a line of cv information(skill)
 % Usage: \cvskill{<type>}{<skillset>}
 \newcommand{\cvskill}[2]{
-	\skilltypestyle{#1} & \skillsetstyle{#2} \\
+  \item \skilltypestyle{#1}: \skillsetstyle{#2}
 }
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}
 {
-  \vspace{-4.0mm}
+  \vspace{0pt}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -329,7 +317,7 @@
 {
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{0pt}
 }
 
 
