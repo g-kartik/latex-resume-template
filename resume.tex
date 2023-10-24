@@ -3,28 +3,82 @@
 \documentclass{my_resume}
 
 \begin{document}
-	\resumeHeading{G Karthik}{Madurai, Tamil Nadu}{gkartikraja@gmail.com}{+91-8462-9827-62}
-	\section{Summary}
-	Site Reliability Engineer at fintech company KarrotPay. Have led growth at infrastructure departments in two fintech companies as lead engineer and founding member.
-	12+ years of diverse software engineering experience with specialties in software architecture design, infrastructure operation, backend development, and security engineering.
-	Love to contribute to open sources and tech communities by sharing knowledge and experience. Prefers a command line interface environment as a big fan of Vim, Linux, and macOS. 
-	Always trying to customize to find the most optimal environment. Interested in devising a better problem solving method for challenging tasks, and learning new technologies and tools
-	\section{Experience}
-		\experienceEntry{Mindkosh AI}{New Delhi (Remote)}{Software Engineer}{Jun 2021 - Present}
-		\begin{experienceDescriptionEntries}
-			\experienceItem{Notifications}{Service for sending email, push and in-app notifications. Involved in features such as delivery time
+	\name{G Karthik}
+	\address{Madurai, Tamil Nadu}
+	\email{gkartikraja@gmail.com}
+	\mobile{+91-8462-9827-62}
+	\resumeHeading
+
+	%-------------------------------------------------------------------------------
+	%	Summary
+	%-------------------------------------------------------------------------------
+	\cvsection{Summary}
+	\begin{cvparagraph}
+		Site Reliability Engineer at fintech company KarrotPay. Have led growth at
+		infrastructure departments in two fintech companies as lead engineer and
+		founding member. 12+ years of diverse software engineering experience with
+		specialties in software architecture design, infrastructure operation, 
+		backend development, and security engineering. Love to contribute to 
+		open sources and tech communities by sharing knowledge and experience. Prefers a command line interface environment as a big fan of Vim, Linux, and macOS. Always trying to customize to find the most optimal environment. Interested in devising a better problem-solving method for challenging tasks, and learning new technologies and tools.
+	\end{cvparagraph}
+	%-------------------------------------------------------------------------------
+
+
+	%-------------------------------------------------------------------------------
+	%	Work Experience
+	%-------------------------------------------------------------------------------
+	\cvsection{Work Experience}
+	\begin{cventries}
+		\cventry
+			{Mindkosh AI} % Organization
+			{Indore, Madhya Pradesh} % Location
+			{Software Engineer} % Job title
+			{June 2021 - Present} % Date(s)
+
+		\begin{cvitems} % Description(s) of tasks/responsibilities
+			\cvitem{Notifications}{Service for sending email, push and in-app notifications. Involved in features such as delivery time
 			optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-			\experienceItem{Notifications}{Service for sending email, push and in-app notifications. Involved in features such as delivery time
+			\cvitem{Notifications}{Service for sending email, push and in-app notifications. Involved in features such as delivery time
 			optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-		\end{experienceDescriptionEntries}
-	\section{Skills}
-		\begin{experienceDescriptionEntries}
-			\experienceItem{Languages}{Service for sending email, push and in-app notifications. Involved in features such as delivery time
-			optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-			\experienceItem{Technologies}{Service for sending email, push and in-app notifications. Involved in features such as delivery time
-			optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-		\end{experienceDescriptionEntries}
-	\section{Education}
-	\experienceEntry{Shri Vaishnav Institute of Technology and Science}{Indore, Madhya Pradesh}{Bachelor of Engineering in Electrical and Electronics}{2013 - 2017}
+		\end{cvitems}
+	\end{cventries}
+	%-------------------------------------------------------------------------------
+
+	%-------------------------------------------------------------------------------
+	%	SKILLS
+	%-------------------------------------------------------------------------------
+	\cvsection{Skills}
+	\begin{cvskills}
+		\cvskill
+			{DevOps} % Category
+			{AWS, Docker} % Skills
+
+		\cvskill
+			{Back-end} % Category
+			{Django, REST API} % Skills
+
+		\cvskill
+			{Programming} % Category
+			{Python, SQL} % Skills
+	\end{cvskills}
+	%-------------------------------------------------------------------------------
+
+
+	%-------------------------------------------------------------------------------
+	%	EDUCATION
+	%-------------------------------------------------------------------------------
+	\cvsection{Education}
+	\begin{cventries}
+		\cventry
+			{Shri Vaishnav Institute of Technology and Science} % Institution
+			{Indore, Madhya Pradesh} % Location
+			{Bachelor of Engineering in Electrical and Electronics} % Degree
+			{Jul 2013 - Aug 2017} % Date(s)
+
+		\begin{cvitems} % Description(s) bullet points
+			\item {Won an inter-college project competition}
+		\end{cvitems}
+	\end{cventries}
+	%-------------------------------------------------------------------------------
 	\makecvfooter{24 October 2023}{G Kathik Resume}{1}
 \end{document}
