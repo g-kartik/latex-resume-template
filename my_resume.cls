@@ -59,6 +59,7 @@
 \RequirePackage{calc}
 \RequirePackage{unicode-math}
 % \RequirePackage[grid]{eso-pic}
+\RequirePackage{tasks}
 
 
 %-------------------------------------------------------------------------------
@@ -329,7 +330,7 @@
 \newenvironment{cvitems}{
   \vspace{\cvItemsEnvBeforeSkip}
   \begin{justify}
-  \begin{itemize}[leftmargin=\cvItemLeftMargin, itemsep=\cvItemSeparation, labelsep=\cvItemLabelSeparation]
+  \begin{itemize}[left=\cvItemLeftMargin, itemsep=\cvItemSeparation, labelsep=\cvItemLabelSeparation]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{
