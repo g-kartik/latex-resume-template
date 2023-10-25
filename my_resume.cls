@@ -106,7 +106,8 @@
 \newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\itshape\color{text} #1}}
 \newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text} #1}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfont\upshape\color{text}}
-\newcommand{\cvitemstyle}[1]{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}
+\newcommand{\cvitemheadingstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\bfseries\color{text} #1}}
+\newcommand{\cvitemcontentstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
 
 % For elements of entry
 \newcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
@@ -173,19 +174,21 @@
 \newcommand{\cvQuoteAfterSkip}{5pt}
 \newcommand{\cvSectionBeforeSkip}{10pt}
 \newcommand{\cvSectionAfterSkip}{5pt}
+\newcommand{\cvTableBeforeSkip}{5pt}
+\newcommand{\cvTableAfterSkip}{-15pt}
+\newcommand{\cvTableRowSeparation}{-5pt}
+\newcommand{\cvItemLabelSeparation}{4pt}
+\newcommand{\cvItemInlineSeparation}{10pt}
+
 \newcommand{\cvParagraphBeforeSkip}{0pt}
 \newcommand{\cvParagraphAfterSkip}{0pt}
-\newcommand{\cvTableBeforeSkip}{5pt}
-\newcommand{\cvTableAfterSkip}{-5pt}
-\newcommand{\cvTableRowSeparation}{-5pt}
-\newcommand{\cvItemSeparation}{3pt}
+\newcommand{\cvItemSeparation}{0pt}
 \newcommand{\cvItemLeftMargin}{0pt}
-\newcommand{\cvItemLabelSeparation}{4pt}
 \newcommand{\cvEntriesEnvBeforeSkip}{0pt}
 \newcommand{\cvEntriesEnvAfterSkip}{0pt}
 \newcommand{\cvItemsEnvBeforeSkip}{0pt}
 \newcommand{\cvItemsEnvAfterSkip}{0pt}
-\newcommand{\cvItemInlineSeparation}{10pt}
+
 \newcommand{\cvLineSpacing}{1.5}
 \setstretch{\cvLineSpacing}
 
@@ -274,7 +277,7 @@
 
 % Define a line of cv item (for cvitems)
 % Usage: \cvitem{<heading>}{<description>}
-\newcommand{\cvitem}[2]{\item \textbf{\cvitemstyle{#1}}: \cvitemstyle{#2}}
+\newcommand{\cvitem}[2]{\item \cvitemheadingstyle{#1}: \cvitemcontentstyle{#2}}
 
 
 
@@ -305,7 +308,8 @@
 \newenvironment{cvitems}{
   \vspace{\cvItemsEnvBeforeSkip}
   \begin{justify}
-  \begin{itemize}[left=\cvItemLeftMargin, itemsep=\cvItemSeparation, labelsep=\cvItemLabelSeparation]
+  \begin{itemize}[left=\cvItemLeftMargin, itemsep=\cvItemSeparation,
+    labelsep=\cvItemLabelSeparation]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{
