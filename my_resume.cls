@@ -59,7 +59,7 @@
 \RequirePackage{calc}
 \RequirePackage{unicode-math}
 % \RequirePackage[grid]{eso-pic}
-\RequirePackage{tasks}
+\RequirePackage{changepage}
 
 
 %-------------------------------------------------------------------------------
@@ -343,11 +343,12 @@
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvskills}{
   \vspace{\cvItemsEnvBeforeSkip}
-  \begin{justify}
-    \begin{itemize*}[itemjoin={\hspace{\cvItemInlineSeparation}}, afterlabel=\hspace{\cvItemLabelSeparation},
-      before=\hspace{\cvItemLeftMargin}]
+  \begin{adjustwidth}{\cvItemLeftMargin}{}
+    \begin{justify}
+    \begin{itemize*}[itemjoin={\hspace{\cvItemInlineSeparation}}, afterlabel=\hspace{\cvItemLabelSeparation}]
 }{
-  \end{itemize*}
-  \end{justify}
+    \end{itemize*}
+    \end{justify}
+  \end{adjustwidth}
   \vspace{\cvItemsEnvAfterSkip}
 }
