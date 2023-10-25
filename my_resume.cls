@@ -77,20 +77,13 @@
 %                Configuration for colors
 %-------------------------------------------------------------------------------
 % Gray-scale colors
-\definecolor{white}{HTML}{FFFFFF}
 \definecolor{black}{HTML}{000000}
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{5D5D5D}
 \definecolor{lightgray}{HTML}{999999}
-% Basic colors
-\definecolor{green}{HTML}{C2E15F}
-\definecolor{orange}{HTML}{FDA333}
-\definecolor{purple}{HTML}{D3A4F9}
-\definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
 % Text colors
 \definecolor{darktext}{HTML}{414141}
-\colorlet{text}{darkgray}
+\colorlet{text}{black}
 \colorlet{graytext}{gray}
 \colorlet{lighttext}{lightgray}
 \colorlet{sectiondivider}{gray}
