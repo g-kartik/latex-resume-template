@@ -53,7 +53,6 @@
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
 \RequirePackage{unicode-math}
-\RequirePackage{changepage}
 
 
 %-------------------------------------------------------------------------------
@@ -338,13 +337,12 @@
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvskills}{
   \vspace{\cvItemsEnvBeforeSkip}
-  \begin{adjustwidth}{}{}
-    \begin{justify}
+  \begin{justify}
     \setstretch{\cvLineSpacing}
-    \begin{itemize*}[itemjoin={\hspace{\cvItemInlineSeparation}}, afterlabel=\hspace{\cvItemLabelSeparation}]
+    \begin{itemize*}[itemjoin={\hspace{\cvItemInlineSeparation}},
+      afterlabel=\hspace{\cvItemLabelSeparation}]
 }{
     \end{itemize*}
-    \end{justify}
-  \end{adjustwidth}
+  \end{justify}
   \vspace{\cvItemsEnvAfterSkip}
 }
