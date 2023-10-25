@@ -108,9 +108,6 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-\newcommand*{\headerfont}{\roboto}
-\newcommand*{\headerfontlight}{\robotolight}
-\newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
 
@@ -120,22 +117,24 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\headerfontlight\color{graytext} #1}}
-\newcommand{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\itshape\color{lighttext} #1}}
-\newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
-\newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
+\newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\bodyfont\color{text} #1}}
+\newcommand{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
+\newcommand{\headerinfostyle}[1]{{\fontsize{8pt}{1em}\bodyfont\color{text} #1}}
+\newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{text} #1}}
+\newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\scshape\color{text} #1}}
 \newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
+\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfont\upshape\color{text}}
+\newcommand{\cvitemstyle}[1]{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}
 
 % For elements of entry
-\newcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{text} #1}}
+\newcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
+\newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{text} #1}}
+\newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{text} #1}}
+\newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\slshape\color{text} #1}}
 
 % For elements of skill
-\newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
+\newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{text} #1}}
 
 
 %-------------------------------------------------------------------------------
@@ -237,8 +236,8 @@
 	\setlength\tabcolsep{0pt}
 	\setlength{\extrarowheight}{0pt}
 	\begin{tabularx}{\textwidth}{L{0.6\textwidth}R{0.4\textwidth}}
-		\textbf{\headernamestyle \@name} & \href{\@emailuri}{\@email} \\
-		\textit{\headeraddressstyle \@address} & \href{\@teluri}{\@mobile} \\
+		\headernamestyle{\@name} & \headerinfostyle{\href{\@emailuri}{\@email}} \\
+		\headeraddressstyle{\@address} & \headerinfostyle{\href{\@teluri}{\@mobile}} \\
 	\end{tabularx}
   \vspace{\cvHeadingAfterSkip}
 
@@ -267,7 +266,7 @@
   \vspace{\cvSectionBeforeSkip}
   \sectionstyle{#1}
   \phantomsection
-  \color{sectiondivider}\vhrulefill{0.9pt} \\
+  \vhrulefill{0.9pt} \\
   \vspace{\cvSectionAfterSkip}
 }
 
@@ -293,8 +292,7 @@
 
 % Define a line of cv item (for cvitems)
 % Usage: \cvitem{<heading>}{<description>}
-\newcommand{\cvitem}[2]{\item \textbf{#1}: {#2}}
-
+\newcommand{\cvitem}[2]{\item \textbf{\cvitemstyle{#1}}: \cvitemstyle{#2}}
 
 
 
