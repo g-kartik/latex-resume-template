@@ -4,6 +4,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{my_resume}[2023/10/24 custom resume class]
 
+
 %-------------------------------------------------------------------------------
 %                Class options
 %
@@ -17,6 +18,7 @@
 }
 \ProcessOptions\relax
 \LoadClass{article}
+
 
 %-------------------------------------------------------------------------------
 %                3rd party packages
@@ -58,7 +60,6 @@
 \RequirePackage{unicode-math}
 
 
-
 %-------------------------------------------------------------------------------
 %                Configuration for layout
 %-------------------------------------------------------------------------------
@@ -75,6 +76,7 @@
 \fancyhf{}
 % Enable if you want to make header or footer using fancyhdr
 \pagestyle{fancy}
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for colors
@@ -107,6 +109,7 @@
   \ifbool{acvSectionColorHighlight}{{\color{text}#1#2#3}}{#1#2#3}%
 }
 
+
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
@@ -115,6 +118,7 @@
 \newcommand*{\footerfont}{\sourcesanspro}
 \newcommand*{\bodyfont}{\sourcesanspro}
 \newcommand*{\bodyfontlight}{\sourcesansprolight}
+
 
 %-------------------------------------------------------------------------------
 %                Configuration for styles
@@ -126,7 +130,6 @@
 \newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\newcommand{\subsectionstyle}[1]{{\fontsize{12pt}{1em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
@@ -134,18 +137,11 @@
 \newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{text} #1}}
-\newcommand{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text} #1}}
-
-% For elements of subentry
-\newcommand{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
-\newcommand{\subentrypositionstyle}[1]{{\fontsize{7pt}{1em}\bodyfont\scshape\color{graytext} #1}}
-\newcommand{\subentrydatestyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{graytext} #1}}
-\newcommand{\subentrylocationstyle}[1]{{\fontsize{7pt}{1em}\bodyfontlight\slshape\color{text} #1}}
-\newcommand{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of skill
 \newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+
 
 %-------------------------------------------------------------------------------
 %                Commands for personal information
@@ -188,34 +184,31 @@
 % Defines writer's quote (optional)
 % Usage: \quote{<quote>}
 \renewcommand{\quote}[1]{\def\@quote{#1}}
-
-% Define Resume Heading
-% Usage: \experienceEntry{<Name>}{<address>}{<email address>}{<mobile number>}
-\newcommand{\resumeHeading}{
-	\raggedright
-	\vspace{-2.0mm}
-	\setlength\tabcolsep{0pt}
-	\setlength{\extrarowheight}{0pt}
-	\begin{tabularx}{\textwidth}{L{0.6\textwidth}R{0.4\textwidth}}
-		\textbf{\Large \@name} & \href{\@emailuri}{\@email} \\
-		\textit{\small \@address} & \href{\@teluri}{\@mobile} \\
-	\end{tabularx}
-}
 \makeatother
 
 
 %-------------------------------------------------------------------------------
-%                Commands for extra
+%                Commands for Spacing
 %-------------------------------------------------------------------------------
 %% Define helper macros a user can change easily
-% Header
-\newcommand{\acvHeaderAfterNameSkip}{.4mm}
-\newcommand{\acvHeaderAfterQuoteSkip}{5mm}
-
-% Others
-\newcommand{\acvSectionTopSkip}{3mm}
-\newcommand{\acvSectionContentTopSkip}{2.5mm}
-
+\newcommand{\cvHeadingBeforeSkip}{0pt}
+\newcommand{\cvHeadingAfterSkip}{10pt}
+\newcommand{\cvQuoteBeforeSkip}{3pt}
+\newcommand{\cvQuoteAfterSkip}{3pt}
+\newcommand{\cvSectionBeforeSkip}{5pt}
+\newcommand{\cvSectionAfterSkip}{5pt}
+\newcommand{\cvParagraphBeforeSkip}{2pt}
+\newcommand{\cvParagraphAfterSkip}{2pt}
+\newcommand{\cvTableBeforeSkip}{2pt}
+\newcommand{\cvTableAfterSkip}{2pt}
+\newcommand{\cvTableRowSeparation}{1pt}
+\newcommand{\cvItemSeparation}{5pt}
+\newcommand{\cvItemLeftMargin}{10pt}
+\newcommand{\cvItemLabelSeparation}{2pt}
+\newcommand{\cvEntriesEnvBeforeSkip}{1pt}
+\newcommand{\cvEntriesEnvAfterSkip}{1pt}
+\newcommand{\cvItemsEnvBeforeSkip}{1pt}
+\newcommand{\cvItemsEnvAfterSkip}{1pt}
 
 %-------------------------------------------------------------------------------
 %                Commands for utilities
@@ -233,11 +226,30 @@
 % Use to execute conditional statements by checking empty string
 \newcommand{\ifempty}[3]{\ifthenelse{\isempty{#1}}{#2}{#3}}
 
+
 %-------------------------------------------------------------------------------
 %                Commands for elements of CV structure
 %-------------------------------------------------------------------------------
-% Define a header for CV
-% Usage: \makecvheader
+% Define Resume Heading
+% Usage: \resumeHeading
+\makeatletter
+\newcommand{\resumeHeading}{
+  \raggedright
+  \vspace{\cvHeadingBeforeSkip}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabularx}{\textwidth}{L{0.6\textwidth}R{0.4\textwidth}}
+		\textbf{\headernamestyle \@name} & \href{\@emailuri}{\@email} \\
+		\textit{\headeraddressstyle \@address} & \href{\@teluri}{\@mobile} \\
+	\end{tabularx}
+  \vspace{\cvHeadingAfterSkip}
+
+  \centering
+  \vspace{\cvQuoteBeforeSkip}
+  \headerquotestyle{\@quote}
+  \vspace{\cvQuoteAfterSkip}
+}
+\makeatother
 
 % Define a footer for CV
 % Usage: \makecvfooter{<left>}{<center>}{<right>}
@@ -251,51 +263,24 @@
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{
-  \vspace{\acvSectionTopSkip}
+  \vspace{\cvSectionBeforeSkip}
   \sectionstyle{#1}
   \phantomsection
   \color{sectiondivider}\vhrulefill{0.9pt} \\
-}
-
-% Define a subsection for CV
-% Usage: \cvsubsection{<subsection-title>}
-\newcommand{\cvsubsection}[1]{
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
-  \subsectionstyle{#1}
-  \phantomsection
-}
-
-% Define a paragraph for CV
-\newenvironment{cvparagraph}{
-  \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
-  \begin{justify}
-  \paragraphstyle
-}{
-  \par
-  \end{justify}
-  \vspace{2mm}
-}
-
-% Define an environment for cventry
-\newenvironment{cventries}{
-  \vspace{\acvSectionContentTopSkip}
-  \begin{center}
-}{
-  \end{center}
+  \vspace{\cvSectionAfterSkip}
 }
 
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand{\cventry}[4]{
-  \vspace{-2.0mm}
+  \vspace{\cvTableBeforeSkip}
   \setlength\tabcolsep{0pt}
-  \setlength{\extrarowheight}{0pt}
+  \setlength{\extrarowheight}{\cvTableRowSeparation}
   \begin{tabularx}{\textwidth}{L{0.6\textwidth} R{0.4\textwidth}}
       \entrytitlestyle{#1} & \entrylocationstyle{#2} \\
       \entrypositionstyle{#3} & \entrydatestyle{#4} \\
   \end{tabularx}
+  \vspace{\cvTableBeforeSkip}
 }
 
 
@@ -305,22 +290,45 @@
   \item \skilltypestyle{#1}: \skillsetstyle{#2}
 }
 
-% Define an environment for cvitems(for cventry)
-\newenvironment{cvitems}
-{
-  \vspace{0pt}
-  \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
-    \setlength{\parskip}{0pt}
-    \renewcommand{\labelitemi}{\bullet}
-}
-{
-  \end{itemize}
-  \end{justify}
-  \vspace{0pt}
-}
-
-
 % Define a line of cv item (for cvitems)
 % Usage: \cvitem{<heading>}{<description>}
 \newcommand{\cvitem}[2]{\item \textbf{#1}: {#2}}
+
+
+
+
+
+
+% Environments
+% Define a paragraph for CV
+\newenvironment{cvparagraph}{
+  \vspace{\cvParagraphBeforeSkip}
+  \begin{justify}
+  \paragraphstyle
+}{
+  \par
+  \end{justify}
+  \vspace{\cvParagraphAfterSkip}
+}
+
+% Define an environment for cventry
+\newenvironment{cventries}{
+  \vspace{\cvEntriesEnvBeforeSkip}
+  \begin{center}
+}{
+  \end{center}
+  \vspace{\cvEntriesEnvAfterSkip}
+}
+
+% Define an environment for cvitems(for cventry)
+\newenvironment{cvitems}{
+  \vspace{\cvItemsEnvBeforeSkip}
+  \begin{justify}
+  \begin{itemize}[leftmargin=\cvItemLeftMargin, itemsep=\cvItemSeparation, labelsep=\cvItemLabelSeparation]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelitemi}{\bullet}
+}{
+  \end{itemize}
+  \end{justify}
+  \vspace{\cvItemsEnvAfterSkip}
+}
