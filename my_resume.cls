@@ -51,13 +51,14 @@
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed to handle list environment
-\RequirePackage{enumitem}
+\RequirePackage[inline]{enumitem}
 % Needed to handle text alignment
 \RequirePackage{ragged2e}
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
 \RequirePackage{calc}
 \RequirePackage{unicode-math}
+% \RequirePackage[grid]{eso-pic}
 
 
 %-------------------------------------------------------------------------------
@@ -203,12 +204,13 @@
 \newcommand{\cvTableAfterSkip}{2pt}
 \newcommand{\cvTableRowSeparation}{1pt}
 \newcommand{\cvItemSeparation}{5pt}
-\newcommand{\cvItemLeftMargin}{10pt}
+\newcommand{\cvItemLeftMargin}{20pt}
 \newcommand{\cvItemLabelSeparation}{2pt}
 \newcommand{\cvEntriesEnvBeforeSkip}{1pt}
 \newcommand{\cvEntriesEnvAfterSkip}{1pt}
 \newcommand{\cvItemsEnvBeforeSkip}{1pt}
 \newcommand{\cvItemsEnvAfterSkip}{1pt}
+\newcommand{\cvItemInlineSeparation}{10pt}
 
 %-------------------------------------------------------------------------------
 %                Commands for utilities
@@ -249,7 +251,6 @@
   \headerquotestyle{\@quote}
   \vspace{\cvQuoteAfterSkip}
 }
-\makeatother
 
 % Define a footer for CV
 % Usage: \makecvfooter{<left>}{<center>}{<right>}
@@ -259,6 +260,10 @@
   \fancyfoot[C]{\footerstyle{#2}}
   \fancyfoot[R]{\footerstyle{#3}}
 }
+
+% Implement the footer
+\makecvfooter{\today}{{\@name} Resume}{\thepage}
+\makeatother
 
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
@@ -329,6 +334,19 @@
     \renewcommand{\labelitemi}{\bullet}
 }{
   \end{itemize}
+  \end{justify}
+  \vspace{\cvItemsEnvAfterSkip}
+}
+
+
+% Define an environment for cvitems(for cventry)
+\newenvironment{cvskills}{
+  \vspace{\cvItemsEnvBeforeSkip}
+  \begin{justify}
+    \begin{itemize*}[itemjoin={\hspace{\cvItemInlineSeparation}}, afterlabel=\hspace{\cvItemLabelSeparation},
+      before=\hspace{\cvItemLeftMargin}]
+}{
+  \end{itemize*}
   \end{justify}
   \vspace{\cvItemsEnvAfterSkip}
 }
