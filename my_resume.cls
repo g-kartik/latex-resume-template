@@ -86,17 +86,6 @@
 \colorlet{text}{black}
 \colorlet{graytext}{gray}
 \colorlet{lighttext}{lightgray}
-\colorlet{sectiondivider}{gray}
-
-% Boolean value to switch section color highlighting
-\newbool{acvSectionColorHighlight}
-\setbool{acvSectionColorHighlight}{true}
-
-% Awesome section color
-\def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlight}{{\color{text}#1#2#3}}{#1#2#3}%
-}
-
 
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
@@ -112,22 +101,22 @@
 % For fundamental structures
 \newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\bodyfont\color{text} #1}}
 \newcommand{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\headerinfostyle}[1]{{\fontsize{8pt}{1em}\bodyfont\color{text} #1}}
+\newcommand{\headerinfostyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
 \newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\scshape\color{text} #1}}
-\newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
+\newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\itshape\color{text} #1}}
+\newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text} #1}}
 \newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfont\upshape\color{text}}
 \newcommand{\cvitemstyle}[1]{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}
 
 % For elements of entry
 \newcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
-\newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{text} #1}}
-\newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{text} #1}}
-\newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\slshape\color{text} #1}}
+\newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
+\newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
+\newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{text} #1}}
 
 % For elements of skill
 \newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
-\newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{text} #1}}
+\newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
 
 
 %-------------------------------------------------------------------------------
@@ -186,12 +175,12 @@
 \newcommand{\cvSectionAfterSkip}{5pt}
 \newcommand{\cvParagraphBeforeSkip}{0pt}
 \newcommand{\cvParagraphAfterSkip}{0pt}
-\newcommand{\cvTableBeforeSkip}{0pt}
-\newcommand{\cvTableAfterSkip}{-4pt}
-\newcommand{\cvTableRowSeparation}{1pt}
+\newcommand{\cvTableBeforeSkip}{5pt}
+\newcommand{\cvTableAfterSkip}{-5pt}
+\newcommand{\cvTableRowSeparation}{-5pt}
 \newcommand{\cvItemSeparation}{3pt}
 \newcommand{\cvItemLeftMargin}{0pt}
-\newcommand{\cvItemLabelSeparation}{3pt}
+\newcommand{\cvItemLabelSeparation}{4pt}
 \newcommand{\cvEntriesEnvBeforeSkip}{0pt}
 \newcommand{\cvEntriesEnvAfterSkip}{0pt}
 \newcommand{\cvItemsEnvBeforeSkip}{0pt}
