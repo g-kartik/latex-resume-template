@@ -25,7 +25,6 @@
 %-------------------------------------------------------------------------------
 % Needed to make fixed length table
 \RequirePackage{array}
-\RequirePackage{titlesec}
 % Needed to manage fonts
 \RequirePackage[quiet]{fontspec}
 % Needed to configure page layout
@@ -34,8 +33,8 @@
 \RequirePackage[hidelinks,unicode,pdfpagelabels=false]{hyperref}
 % Needed to change line spacing in specific environment
 \RequirePackage{setspace}
+% Need to create advanced tables
 \RequirePackage{tabularx}
-\RequirePackage[usenames,dvipsnames]{color}
 % Needed to make header & footer efficiently
 \RequirePackage{fancyhdr}
 % Needed to manage colors
@@ -44,10 +43,7 @@
 \RequirePackage{parskip}
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
-% Needed to use \ifxetex-\else-\fi statement
-\RequirePackage{ifxetex}
-% Needed to use \if-\then-\else statement
-\RequirePackage{xifthen}
+% Needed to use roboto font
 \RequirePackage{roboto}
 \RequirePackage[default,opentype]{sourcesanspro}
 % Needed to handle list environment
@@ -56,9 +52,7 @@
 \RequirePackage{ragged2e}
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
-\RequirePackage{calc}
 \RequirePackage{unicode-math}
-% \RequirePackage[grid]{eso-pic}
 \RequirePackage{changepage}
 
 
@@ -195,23 +189,25 @@
 %% Define helper macros a user can change easily
 \newcommand{\cvHeadingBeforeSkip}{0pt}
 \newcommand{\cvHeadingAfterSkip}{10pt}
-\newcommand{\cvQuoteBeforeSkip}{3pt}
-\newcommand{\cvQuoteAfterSkip}{3pt}
-\newcommand{\cvSectionBeforeSkip}{5pt}
+\newcommand{\cvQuoteBeforeSkip}{0pt}
+\newcommand{\cvQuoteAfterSkip}{5pt}
+\newcommand{\cvSectionBeforeSkip}{10pt}
 \newcommand{\cvSectionAfterSkip}{5pt}
-\newcommand{\cvParagraphBeforeSkip}{2pt}
-\newcommand{\cvParagraphAfterSkip}{2pt}
-\newcommand{\cvTableBeforeSkip}{2pt}
-\newcommand{\cvTableAfterSkip}{2pt}
+\newcommand{\cvParagraphBeforeSkip}{0pt}
+\newcommand{\cvParagraphAfterSkip}{0pt}
+\newcommand{\cvTableBeforeSkip}{0pt}
+\newcommand{\cvTableAfterSkip}{-4pt}
 \newcommand{\cvTableRowSeparation}{1pt}
-\newcommand{\cvItemSeparation}{5pt}
-\newcommand{\cvItemLeftMargin}{20pt}
-\newcommand{\cvItemLabelSeparation}{2pt}
-\newcommand{\cvEntriesEnvBeforeSkip}{1pt}
-\newcommand{\cvEntriesEnvAfterSkip}{1pt}
-\newcommand{\cvItemsEnvBeforeSkip}{1pt}
-\newcommand{\cvItemsEnvAfterSkip}{1pt}
+\newcommand{\cvItemSeparation}{3pt}
+\newcommand{\cvItemLeftMargin}{0pt}
+\newcommand{\cvItemLabelSeparation}{3pt}
+\newcommand{\cvEntriesEnvBeforeSkip}{0pt}
+\newcommand{\cvEntriesEnvAfterSkip}{0pt}
+\newcommand{\cvItemsEnvBeforeSkip}{0pt}
+\newcommand{\cvItemsEnvAfterSkip}{0pt}
 \newcommand{\cvItemInlineSeparation}{10pt}
+\newcommand{\cvLineSpacing}{1.5}
+\setstretch{\cvLineSpacing}
 
 %-------------------------------------------------------------------------------
 %                Commands for utilities
@@ -286,7 +282,7 @@
       \entrytitlestyle{#1} & \entrylocationstyle{#2} \\
       \entrypositionstyle{#3} & \entrydatestyle{#4} \\
   \end{tabularx}
-  \vspace{\cvTableBeforeSkip}
+  \vspace{\cvTableAfterSkip}
 }
 
 
@@ -339,12 +335,12 @@
   \vspace{\cvItemsEnvAfterSkip}
 }
 
-
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvskills}{
   \vspace{\cvItemsEnvBeforeSkip}
-  \begin{adjustwidth}{\cvItemLeftMargin}{}
+  \begin{adjustwidth}{}{}
     \begin{justify}
+    \setstretch{\cvLineSpacing}
     \begin{itemize*}[itemjoin={\hspace{\cvItemInlineSeparation}}, afterlabel=\hspace{\cvItemLabelSeparation}]
 }{
     \end{itemize*}
