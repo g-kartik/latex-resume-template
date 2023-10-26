@@ -99,24 +99,24 @@
 %-------------------------------------------------------------------------------
 % Configure styles for each CV elements
 % For fundamental structures
-\newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\bodyfont\color{text} #1}}
-\newcommand{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\headerinfostyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\bodyfontlight\itshape\color{text} #1}}
-\newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text} #1}}
-\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfont\upshape\color{text}}
-\newcommand{\cvitemheadingstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\bfseries\color{text} #1}}
-\newcommand{\cvitemcontentstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
+\newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\selectfont\bodyfont\color{text} #1}}
+\newcommand{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headerinfostyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfontlight\itshape\color{text} #1}}
+\newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
+\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\selectfont\bodyfont\upshape\color{text}}
+\newcommand{\cvitemheadingstyle}[1]{{\fontsize{9pt}{0em}\selectfont\bodyfont\bfseries\upshape\color{text} #1}}
+\newcommand{\cvitemcontentstyle}[1]{{\fontsize{9pt}{0em}\selectfont\bodyfont\upshape\color{text} #1}}
 
 % For elements of entry
-\newcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
-\newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\itshape\color{text} #1}}
-\newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{text} #1}}
+\newcommand{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
+\newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 
 % For elements of skill
-\newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{text} #1}}
+\newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
 \newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
 
 
