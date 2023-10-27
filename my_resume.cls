@@ -173,7 +173,7 @@
 \newcommand{\cvHeadingSeparation}{5pt}
 \newcommand{\cvQuoteBeforeSkip}{0pt}
 \newcommand{\cvQuoteAfterSkip}{5pt}
-\newcommand{\cvSectionBeforeSkip}{15pt}
+\newcommand{\cvSectionBeforeSkip}{20pt}
 \newcommand{\cvSectionAfterSkip}{5pt}
 \newcommand{\cvTableBeforeSkip}{5pt}
 \newcommand{\cvTableAfterSkip}{-5pt}

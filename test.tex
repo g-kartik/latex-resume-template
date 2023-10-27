@@ -1,0 +1,16 @@
+\documentclass[11pt]{article}
+\usepackage{lipsum}
+\usepackage{setspace}
+
+\newcommand{\parstyle}[1]{
+    \begin{spacing}{1}
+        \fontsize{11pt}{1em}\selectfont\bfseries #1\par\vspace{14pt}
+    \end{spacing}
+}
+
+\begin{document}
+\begin{flushleft}
+    \parstyle{\lipsum[1]}
+    \lipsum[1]
+\end{flushleft}
+\end{document}
