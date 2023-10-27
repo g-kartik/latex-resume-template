@@ -100,12 +100,12 @@
 % Configure styles for each CV elements
 % For fundamental structures
 \newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\selectfont\bodyfont\color{text} #1}}
-\newcommand{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
-\newcommand{\headerinfostyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
-\newcommand{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headeraddressstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headerinfostyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headerquotestyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfontlight\itshape\color{text} #1}}
 \newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
-\newcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\selectfont\bodyfont\upshape\color{text}}
+\newcommand{\paragraphstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\upshape\color{text} #1}}
 \newcommand{\cvitemheadingstyle}[1]{{\fontsize{9pt}{0em}\selectfont\bodyfont\bfseries\upshape\color{text} #1}}
 \newcommand{\cvitemcontentstyle}[1]{{\fontsize{9pt}{0em}\selectfont\bodyfont\upshape\color{text} #1}}
 
@@ -170,27 +170,27 @@
 %% Define helper macros a user can change easily
 \newcommand{\cvHeadingBeforeSkip}{0pt}
 \newcommand{\cvHeadingAfterSkip}{10pt}
+\newcommand{\cvHeadingSeparation}{5pt}
 \newcommand{\cvQuoteBeforeSkip}{0pt}
 \newcommand{\cvQuoteAfterSkip}{5pt}
-\newcommand{\cvSectionBeforeSkip}{10pt}
+\newcommand{\cvSectionBeforeSkip}{15pt}
 \newcommand{\cvSectionAfterSkip}{5pt}
 \newcommand{\cvTableBeforeSkip}{5pt}
-\newcommand{\cvTableAfterSkip}{-15pt}
-\newcommand{\cvTableRowSeparation}{-5pt}
+\newcommand{\cvTableAfterSkip}{-5pt}
 \newcommand{\cvItemLabelSeparation}{4pt}
+\newcommand{\cvItemSeparation}{3pt}
 \newcommand{\cvItemInlineSeparation}{10pt}
 
+\newcommand{\cvTableRowSeparation}{0pt}
 \newcommand{\cvParagraphBeforeSkip}{0pt}
 \newcommand{\cvParagraphAfterSkip}{0pt}
-\newcommand{\cvItemSeparation}{0pt}
 \newcommand{\cvItemLeftMargin}{0pt}
 \newcommand{\cvEntriesEnvBeforeSkip}{0pt}
 \newcommand{\cvEntriesEnvAfterSkip}{0pt}
 \newcommand{\cvItemsEnvBeforeSkip}{0pt}
 \newcommand{\cvItemsEnvAfterSkip}{0pt}
 
-\newcommand{\cvLineSpacing}{1.5}
-\setstretch{\cvLineSpacing}
+\newcommand{\cvLineSpacing}{1.15}
 
 %-------------------------------------------------------------------------------
 %                Commands for utilities
@@ -219,7 +219,7 @@
   \raggedright
   \vspace{\cvHeadingBeforeSkip}
 	\setlength\tabcolsep{0pt}
-	\setlength{\extrarowheight}{0pt}
+	\setlength{\extrarowheight}{\cvHeadingSeparation}
 	\begin{tabularx}{\textwidth}{L{0.6\textwidth}R{0.4\textwidth}}
 		\headernamestyle{\@name} & \headerinfostyle{\href{\@emailuri}{\@email}} \\
 		\headeraddressstyle{\@address} & \headerinfostyle{\href{\@teluri}{\@mobile}} \\
@@ -228,7 +228,7 @@
 
   \centering
   \vspace{\cvQuoteBeforeSkip}
-  \headerquotestyle{\@quote}
+  \headerquotestyle{"\@quote"}
   \vspace{\cvQuoteAfterSkip}
 }
 
@@ -279,18 +279,18 @@
 % Usage: \cvitem{<heading>}{<description>}
 \newcommand{\cvitem}[2]{\item \cvitemheadingstyle{#1}: \cvitemcontentstyle{#2}}
 
-
-
+% Define a line of cv paragraph
+% Usage: \cvitem{<heading>}{<description>}
+\newcommand{\makeparagraph}[1]{\paragraphstyle{#1}\par}
 
 
 % Environments
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{
   \vspace{\cvParagraphBeforeSkip}
+  \setstretch{\cvLineSpacing}
   \begin{justify}
-  \paragraphstyle
 }{
-  \par
   \end{justify}
   \vspace{\cvParagraphAfterSkip}
 }
@@ -298,9 +298,9 @@
 % Define an environment for cventry
 \newenvironment{cventries}{
   \vspace{\cvEntriesEnvBeforeSkip}
-  \begin{center}
+  \begin{justify}
 }{
-  \end{center}
+  \end{justify}
   \vspace{\cvEntriesEnvAfterSkip}
 }
 
@@ -308,6 +308,7 @@
 \newenvironment{cvitems}{
   \vspace{\cvItemsEnvBeforeSkip}
   \begin{justify}
+  \setstretch{\cvLineSpacing}
   \begin{itemize}[left=\cvItemLeftMargin, itemsep=\cvItemSeparation,
     labelsep=\cvItemLabelSeparation]
     \setlength{\parskip}{0pt}
