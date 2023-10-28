@@ -53,6 +53,7 @@
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
 \RequirePackage{unicode-math}
+\RequirePackage{xifthen}
 
 
 %-------------------------------------------------------------------------------
@@ -114,7 +115,7 @@
 \newcommand{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
-
+\newcommand{\entrytitleurlstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfontlight\itshape\color{text} #1}}
 % For elements of skill
 \newcommand{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
 \newcommand{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
@@ -257,7 +258,20 @@
 
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand{\cventry}[4]{
+\newcommand{\cventry}[5]{
+  \vspace{\cvTableBeforeSkip}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{\cvTableRowSeparation}
+  \begin{tabularx}{\textwidth}{L{0.6\textwidth} R{0.4\textwidth}}
+      \entrytitlestyle{#1} \entrytitleurlstyle{(\href{https://#2}{#2})} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#4} & \entrydatestyle{#5} \\
+  \end{tabularx}
+  \vspace{\cvTableAfterSkip}
+}
+
+% Define an entry of cv education
+% Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
+\newcommand{\cventryedu}[4]{
   \vspace{\cvTableBeforeSkip}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{\cvTableRowSeparation}
