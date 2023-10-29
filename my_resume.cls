@@ -295,7 +295,7 @@
 
 % Define a line of cv paragraph
 % Usage: \cvitem{<heading>}{<description>}
-\newcommand{\makeparagraph}[1]{\paragraphstyle{#1}\par}
+\newcommand{\makeparagraph}[1]{\paragraphstyle{#1}}
 
 
 % Environments
@@ -303,6 +303,7 @@
 \newenvironment{cvparagraph}{
   \vspace{\cvParagraphBeforeSkip}
   \setstretch{\cvLineSpacing}
+  \setlength{\JustifyingParfillskip}{0pt}
   \begin{justify}
 }{
   \end{justify}
