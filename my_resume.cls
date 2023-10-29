@@ -302,7 +302,7 @@
 \newenvironment{cvparagraph}{
   \vspace{\cvParagraphBeforeSkip}
   \setstretch{\cvLineSpacing}
-  \setlength{\JustifyingParfillskip}{0pt}
+  % \setlength{\JustifyingParfillskip}{0pt}
   \begin{justify}
 }{
   \end{justify}
