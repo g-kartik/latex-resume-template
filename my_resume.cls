@@ -250,7 +250,7 @@
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{
   \vspace{\cvSectionBeforeSkip}
-  \sectionstyle{#1}
+  \sectionstyle{\smash{#1}}
   \phantomsection
   \vhrulefill{0.9pt} \\
   \vspace{\cvSectionAfterSkip}
