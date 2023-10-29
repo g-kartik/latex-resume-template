@@ -229,7 +229,7 @@
 
   \centering
   \vspace{\cvQuoteBeforeSkip}
-  \headerquotestyle{"\@quote"}
+  \headerquotestyle{``\@quote"}
   \vspace{\cvQuoteAfterSkip}
 }
 
@@ -250,8 +250,7 @@
 % Usage: \cvsection{<section-title>}
 \newcommand{\cvsection}[1]{
   \vspace{\cvSectionBeforeSkip}
-  \sectionstyle{\smash{#1}}
-  \phantomsection
+  \sectionstyle{#1}
   \vhrulefill{0.9pt} \\
   \vspace{\cvSectionAfterSkip}
 }
