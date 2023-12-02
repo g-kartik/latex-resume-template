@@ -106,7 +106,7 @@
 \newcommand{\headerquotestyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfontlight\itshape\color{text} #1}}
 \newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
-\newcommand{\paragraphstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\upshape\color{text} #1}}
+\newcommand{\paragraphstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\upshape\color{text} #1 \par}}
 \newcommand{\cvitemheadingstyle}[1]{{\fontsize{9pt}{0em}\selectfont\bodyfont\bfseries\upshape\color{text} #1}}
 \newcommand{\cvitemcontentstyle}[1]{{\fontsize{9pt}{0em}\selectfont\bodyfont\upshape\color{text} #1}}
 
