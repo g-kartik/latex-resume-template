@@ -84,7 +84,7 @@
 \definecolor{lightgray}{HTML}{999999}
 % Text colors
 \definecolor{darktext}{HTML}{414141}
-\colorlet{text}{black}
+\colorlet{text}{darkgray}
 \colorlet{graytext}{gray}
 \colorlet{lighttext}{lightgray}
 
