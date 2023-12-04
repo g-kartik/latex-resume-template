@@ -53,7 +53,10 @@
 % To support LaTeX quoting style
 \defaultfontfeatures{Ligatures=TeX}
 \RequirePackage{unicode-math}
+% To support if-else-then conditionals
 \RequirePackage{xifthen}
+% To support Icons
+\RequirePackage{fontawesome5}
 
 
 %-------------------------------------------------------------------------------
@@ -102,7 +105,9 @@
 % For fundamental structures
 \newcommand{\headernamestyle}[1]{{\fontsize{32pt}{1em}\selectfont\bodyfont\color{text} #1}}
 \newcommand{\headeraddressstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headerwebsitestyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\headerinfostyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
+\newcommand{\headeremailstyle}[1]{{\fontsize{9pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\headerquotestyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfont\itshape\color{text} #1}}
 \newcommand{\footerstyle}[1]{{\fontsize{8pt}{1em}\selectfont\bodyfontlight\itshape\color{text} #1}}
 \newcommand{\sectionstyle}[1]{{\fontsize{16pt}{1em}\selectfont\bodyfont\bfseries\color{text} #1}}
@@ -162,6 +167,10 @@
 % Defines writer's quote (optional)
 % Usage: \quote{<quote>}
 \renewcommand{\quote}[1]{\def\@quote{#1}}
+
+% Personal website
+% Usage: \mywebsite{<website url>}
+\newcommand{\mywebsite}[1]{\def\@mywebsite{#1}}
 \makeatother
 
 
@@ -197,9 +206,9 @@
 %                Commands for utilities
 %-------------------------------------------------------------------------------
 % Use to align an element of tabular table
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}b{#1}}
 
 \makeatletter
 % Use to draw horizontal line with specific thickness
@@ -222,8 +231,9 @@
 	\setlength\tabcolsep{0pt}
 	\setlength{\extrarowheight}{\cvHeadingSeparation}
 	\begin{tabularx}{\textwidth}{L{0.6\textwidth}R{0.4\textwidth}}
-		\headernamestyle{\@name} & \headerinfostyle{\href{\@emailuri}{\@email}} \\
+		\headernamestyle{\@name} & \headeremailstyle{\href{\@emailuri}{\@email}} \\
 		\headeraddressstyle{\@address} & \headerinfostyle{\href{\@teluri}{\@mobile}} \\
+    \headerwebsitestyle{\href{https://\@mywebsite}{\@mywebsite}} & \href{https://\@github}{\faGithub} \hspace{2mm} \href{https://\@linkedin}{\faLinkedin}\\
 	\end{tabularx}
   \vspace{\cvHeadingAfterSkip}
 
