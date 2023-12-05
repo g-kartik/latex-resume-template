@@ -178,10 +178,8 @@
 %                Commands for Spacing
 %-------------------------------------------------------------------------------
 %% Define helper macros a user can change easily
-\newcommand{\cvHeadingBeforeSkip}{0pt}
 \newcommand{\cvHeadingAfterSkip}{10pt}
 \newcommand{\cvHeadingSeparation}{5pt}
-\newcommand{\cvQuoteBeforeSkip}{0pt}
 \newcommand{\cvQuoteAfterSkip}{5pt}
 \newcommand{\cvSectionBeforeSkip}{20pt}
 \newcommand{\cvSectionAfterSkip}{5pt}
@@ -191,6 +189,8 @@
 \newcommand{\cvItemSeparation}{3pt}
 \newcommand{\cvItemInlineSeparation}{10pt}
 
+\newcommand{\cvHeadingBeforeSkip}{0pt}
+\newcommand{\cvQuoteBeforeSkip}{0pt}
 \newcommand{\cvTableRowSeparation}{0pt}
 \newcommand{\cvParagraphBeforeSkip}{0pt}
 \newcommand{\cvParagraphAfterSkip}{0pt}
