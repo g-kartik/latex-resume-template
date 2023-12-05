@@ -178,8 +178,8 @@
 %                Commands for Spacing
 %-------------------------------------------------------------------------------
 %% Define helper macros a user can change easily
+\newcommand{\cvHeadingSeparation}{1pt}
 \newcommand{\cvHeadingAfterSkip}{10pt}
-\newcommand{\cvHeadingSeparation}{5pt}
 \newcommand{\cvQuoteAfterSkip}{5pt}
 \newcommand{\cvSectionBeforeSkip}{20pt}
 \newcommand{\cvSectionAfterSkip}{5pt}
@@ -231,9 +231,9 @@
 	\setlength\tabcolsep{0pt}
 	\setlength{\extrarowheight}{\cvHeadingSeparation}
 	\begin{tabularx}{\textwidth}{L{0.6\textwidth}R{0.4\textwidth}}
-		\headernamestyle{\@name} & \headeremailstyle{\href{\@emailuri}{\@email}} \\
+		\headernamestyle{\@name} & \smash{\raisebox{-2pt}{\headeremailstyle{\href{\@emailuri}{\@email}}}} \\
 		\headeraddressstyle{\@address} & \headerinfostyle{\href{\@teluri}{\@mobile}} \\
-    \headerwebsitestyle{\href{https://\@mywebsite}{\@mywebsite}} & \href{https://\@github}{\faGithub} \hspace{2mm} \href{https://\@linkedin}{\faLinkedin}\\
+    \headerwebsitestyle{\href{https://\@mywebsite}{\@mywebsite}} & \smash{\raisebox{-1pt}{\href{https://\@github}{\faGithub} \hspace{2mm} \href{https://\@linkedin}{\faLinkedin}}} \\
 	\end{tabularx}
   \vspace{\cvHeadingAfterSkip}
 
